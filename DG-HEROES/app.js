@@ -1,8 +1,8 @@
 const express = require("express");
-const path = require(path);
-const app = express()
-app.listen(3030, function(){});
-app.get("/home", (req, res)=>{
+const path = require("path");
+const app = express();
+app.listen(3030, ()=>{console.log("servicio funcionando")});
+app.get("/", (req, res)=>{
     res.sendFile(path.join(__dirname, './views/index.html'));
 })
 app.get('/babbage', (req, res)=>{
@@ -18,7 +18,7 @@ app.get('/hamilton', (req, res)=>{
     res.sendFile(path.join(__dirname, './views/hamilton.html'));
 })
 app.get('/hopper', (req, res)=>{
-    res.sendFile(path.join(__dirname, './views/hopper.html'));
+    res.sendFile(path.join(__dirname, '/views/hopper.html'));
 })
 app.get('/lovelace', (req, res)=>{
     res.sendFile(path.join(__dirname, './views/lovelace.html'));
@@ -26,5 +26,5 @@ app.get('/lovelace', (req, res)=>{
 app.get('turing', (req, res)=>{
     res.sendFile(path.join(__dirname, './views/turing.html'));
 })
-app.use(express.static(public));
+app.use(express.static("public"));
 
